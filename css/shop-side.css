@@ -30,8 +30,6 @@ ul {
 .black {
     background-color: black;
 }
-:root {
-}
 .flex-between {
     display: flex;
     justify-content: space-between;
@@ -46,9 +44,6 @@ ul {
 }
 .parent > .content {
     margin-top: 50px;
-    display: grid;
-    grid-template-columns: 77% 20%;
-    justify-content: space-between;
 }
 .parent .content section > .pictures {
     height: 200px;
@@ -109,11 +104,6 @@ ul {
 .customize span.special {
     margin-right: 5px;
 }
-.details {
-    display: grid;
-    grid-template-columns: 25% 73%;
-    justify-content: space-between;
-}
 .details > .details-pic > div {
     background-color: red;
     color: white;
@@ -124,8 +114,20 @@ ul {
     padding: 10px;
 }
 .details > .details-pic > img {
-    width: 100%;
+    width: 70%;
     height: 200px;
+    margin-bottom: 30px;
+}
+@media (min-width:650px) {
+    .details {
+        display: grid;
+        grid-template-columns: 25% 73%;
+        justify-content: space-between;
+    }
+    .details > .details-pic > img {
+        width: 100%;
+        margin: auto;
+    }
 }
 .details > .min > .star {
     width: 100px;
@@ -195,17 +197,18 @@ aside h3::before {
     display: flex;
     align-items: center;
 }
-@media (max-width:900px) {
+@media (min-width:900px) {
     .parent > .content {
-        grid-template-columns: none;
-        grid-template-rows: repeat(auto-fit,minmax(300px,1fr));
+        display: grid;
+        grid-template-columns: 77% 20%;
+        justify-content: space-between;
+    }
+    section {
+        grid-column: 1;
+        grid-row: 1;
     }
     aside {
-        grid-row: 1;
-        margin-bottom: 20px;
-    }
-    aside > .color {
-        display: none;
+        grid-column: 2;
     }
 }
 @media (max-width: 650px) {
@@ -216,5 +219,8 @@ aside h3::before {
     }
     .customize > div:first-child {
         margin-bottom: 20px;
+    }
+    aside > .color {
+        display: none;
     }
 }
